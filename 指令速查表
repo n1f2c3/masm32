@@ -283,3 +283,21 @@ FRNDINT               这个指令是把 ST 的数值舍入成整数，FPU    �
                           01    向负无限大舍入  
                           10    向正无限大舍入  
                           11    向零舍去  
+FS寄存器指向：
+偏移 说明
+000 指向SEH链指针
+004 线程堆栈顶部
+008 线程堆栈底部
+00C SubSystemTib
+010 FiberData
+014 ArbitraryUserPointer
+018 TEB地址
+020 进程PID
+024 线程ID
+02C 指向线程局部存储指针
+030 PEB结构地址（进程结构）
+034 上个错误号
+
+PEB（Process Environment Block，进程环境块）存放进程信息，每个进程都有自己的PEB信息。位于用户地址空间。
+
+TEB（Thread Environment Block，线程环境块）系统在此TEB中保存频繁使用的线程相关的数据。位于用户地址空间，在比 PEB 所在地址低的地方。进程中的每个线程都有自己的一个TEB。
